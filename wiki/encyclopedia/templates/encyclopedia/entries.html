@@ -1,0 +1,27 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ entry.title }}
+{% endblock %}
+
+{% block body %}
+    <h1>
+        {{ entry.title | safe }}
+    </h1>
+    <p>
+        {{ entry.content | safe}}
+    </p>
+    <a href="{% url 'edit' entry.pk %}">Edit Entry</a>
+    <hr>
+    <h2> Other entries </h2>
+    <ul>
+        {% for other_entry in entries %}
+            <li>
+                <a href="{% url 'wiki' title=other_entry.title %}">
+                    {{ other_entry }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

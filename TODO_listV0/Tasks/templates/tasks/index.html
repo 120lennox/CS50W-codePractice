@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>
+    Online TODO list 
+</h1>
+
+{% for task in tasks %}
+    <ol>
+        <li>task</li>
+    </ol>
+    {% empty %}
+        <p>No tasks yet</p>
+{% endfor %}
+
+<a  href="{% url 'tasks:add' %}">click to add tasks</a>
+{% endblock content %}

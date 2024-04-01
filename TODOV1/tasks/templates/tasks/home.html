@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Tasks</h2>
+
+    {% for task in tasks %}
+        <h4>
+            <a href="">
+                {{ task.Task_head }}
+            </a>
+        </h4>
+
+        <p>
+            {{ task.Task_body }}
+        </p>
+
+        {% empty %}
+            <h4>No Tasks yet!</h4>
+    {% endfor %}
+    <a href="{% url 'tasks:add' %}">Add Tasks</a>
+
+{% endblock content %}
