@@ -14,6 +14,8 @@ import re
 from django.db.models import Q
 from django.utils.html import strip_tags
 
+#remember to install markdown first thing tomorrow
+
 
 from . import util
 
@@ -42,7 +44,7 @@ class EntryDetailView(DetailView):
         pk = self.kwargs.get('pk')
         content = util.get_entry(pk)
         md = markdown.Markdown(extensions=['fenced_code'])
-        #fixing 'NoneType' object has no attribute 'strip'
+        #fixing 'NoneType' object has no attribute 'strip' error
         if content is not None:
             title_md = md.convert(pk)
             content_md = md.convert(content)
