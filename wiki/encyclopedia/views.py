@@ -23,7 +23,7 @@ class ListTitles(ListView):
     template_name = 'encyclopedia/index.html'
     context_object_name = 'entries'
     
-    def get_queryset(self, ):
+    def get_queryset(self):
          markdown_titles = util.list_entries()
          saved_titles = Entries.objects.values_list('title', flat=True)
          
@@ -78,11 +78,11 @@ class EntryForm(CreateView):
         
         return super().form_valid(form)
     
-class EntryUpdateView(UpdateView):
+'''class EntryUpdateView(UpdateView):
     model = Entries
     template_name = 'encyclopedia/update_entry.html'
     fields = '__all__'  
-    success_url = reverse_lazy('index')   
+    success_url = reverse_lazy('index')  ''' 
 
 class RandomPageView(EntryDetailView):
     template_name = 'encyclopedia/random_page.html'
