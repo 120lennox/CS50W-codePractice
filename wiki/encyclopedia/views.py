@@ -14,9 +14,6 @@ import re
 from django.db.models import Q
 from django.utils.html import strip_tags
 
-#remember to install markdown first thing tomorrow
-
-
 from . import util
 
 class ListTitles(ListView):
@@ -78,11 +75,11 @@ class EntryForm(CreateView):
         
         return super().form_valid(form)
     
-'''class EntryUpdateView(UpdateView):
+class EntryUpdateView(UpdateView):
     model = Entries
     template_name = 'encyclopedia/update_entry.html'
     fields = '__all__'  
-    success_url = reverse_lazy('index')  ''' 
+    success_url = reverse_lazy('index')  
 
 class RandomPageView(EntryDetailView):
     template_name = 'encyclopedia/random_page.html'
